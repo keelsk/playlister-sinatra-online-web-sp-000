@@ -14,8 +14,8 @@ class SongsController < ApplicationController
 
   post '/songs' do
     @song = Song.create(params[:song])
-    @song.artists = Artist.find_or_create_by(params[:artist]) if !params[:artist][:name].empty?
-    @song.genres = Genre.find_or_create_by(params[:genre]) if !params[:genre][:name].empty?
+    @song.artist = Artist.find_or_create_by(params[:artist]) if !params[:artist][:name].empty?
+    @song.genres << Genre.find_or_create_by(params[:genre]) if !params[:genre][:name].empty?
     @song.save
     flash[:message] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
