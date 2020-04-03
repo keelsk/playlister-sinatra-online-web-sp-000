@@ -1,5 +1,5 @@
 require 'pry'
-require 'rack-flash'
+require 'rack-flash3'
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   enable :sessions
