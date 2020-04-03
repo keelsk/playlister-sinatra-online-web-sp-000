@@ -17,6 +17,7 @@ class SongsController < ApplicationController
     @song.artists = Artist.find_or_create_by(params[:artist]) if !params[:artist][:name].empty?
     @song.genres << Genre.find_or_create_by(params[:genre]) if !params[:genre][:name].empty?
     @song.save
+    binding.pry
     flash[:message] = "Successfully created song."
     redirect to("/songs/#{@song.slug}")
   end
