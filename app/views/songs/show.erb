@@ -1,5 +1,10 @@
 <% if !!flash[:message] %>
-<%= flash[:message] %> <% end %>
+<%= flash[:message] %>
+<% end %>
+
+<% if !!flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
 
 <h1>Song: <%= @song.name%></h1>
 <h2>Artist: <a href ="/artists/<%= @artist.slug %>"><%= @artist.name%></a></h2>
